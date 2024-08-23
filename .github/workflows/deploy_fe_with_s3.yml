@@ -27,5 +27,13 @@ jobs:
 
       - name: npm build
         working-directory: .
-        # run은 직접 사용하고자 하는 명령어
         run: npm run build
+
+      - name: setup aws cli
+        run: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET}}
+      
+      - name: clear s3 bucket
+        run: aws s3 rm s3://www.qkdrmawll.store/ --recursive
