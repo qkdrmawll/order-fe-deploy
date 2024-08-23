@@ -3,7 +3,7 @@ name: deploy to aws s3
 on:
   push:
     branshes:
-      - main
+      - dev
 jobs:
 # 워크플로우는 하나 이상의 작업으로 구성. 여기서는 하나의 작업만을 정의
   build-and-deploy:
@@ -11,7 +11,7 @@ jobs:
     # 각 작업은 여러 step으로 구성
     steps:
     # actions는 github에서 제공되는 공식 워크플로우
-    #  checkout은 현재 repodml main 브랜치 소스코드를 copy
+    #  checkout은 현재 repo의 main 브랜치 소스코드를 copy
       - name: source code checkout
         uses: actions/checkout@v2
 
