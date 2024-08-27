@@ -3,7 +3,7 @@ name: deploy to aws s3
 on:
   push:
     branshes:
-      - dev
+      - main
 jobs:
 # 워크플로우는 하나 이상의 작업으로 구성. 여기서는 하나의 작업만을 정의
   build-and-deploy:
@@ -42,5 +42,5 @@ jobs:
       - name: deploy to s3
         run: aws s3 cp ./dist s3://www.qkdrmawll.store/ --recursive
 
-      - name: invalidate cloudfront caches
-        run: aws cloudfront create-invalidation --distribution-id E3908VVGJTCO71 --paths "/*"
+      # - name: invalidate cloudfront caches
+      #   run: aws cloudfront create-invalidation --distribution-id E3908VVGJTCO71 --paths "/*"
